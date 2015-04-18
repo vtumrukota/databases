@@ -3,6 +3,7 @@ CREATE DATABASE chat;
 USE chat;
 
 /* Create other tables and define schemas for them here! */
+
 -- ---
 -- Globals
 -- ---
@@ -32,9 +33,7 @@ DROP TABLE IF EXISTS `messages`;
 
 CREATE TABLE `messages` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `createdAt` TIMESTAMP NOT NULL DEFAULT 'NULL',
-  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
-  `text` MEDIUMTEXT NOT NULL DEFAULT '""',
+  `text` MEDIUMTEXT NOT NULL,
   `user_id` INTEGER NULL DEFAULT NULL,
   `rooms_id` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -92,17 +91,10 @@ ALTER TABLE `roomUsers` ADD FOREIGN KEY (room_id) REFERENCES `rooms` (`id`);
 
 -- INSERT INTO `user` (`id`,`name`) VALUES
 -- ('','');
--- INSERT INTO `messages` (`id`,`createdAt`,`updatedAt`,`text`,`user_id`,`rooms_id`) VALUES
--- ('','','','','','');
+-- INSERT INTO `messages` (`id`,`text`,`user_id`,`rooms_id`) VALUES
+-- ('','','','');
 -- INSERT INTO `rooms` (`id`,`name`) VALUES
 -- ('','');
 -- INSERT INTO `roomUsers` (`id`,`user_id`,`room_id`) VALUES
 -- ('','','');
-
-
-
-
-/*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
- *  to create the database and the tables.*/
 
